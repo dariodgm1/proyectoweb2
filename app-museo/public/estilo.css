@@ -1,0 +1,26 @@
+body {
+    background-color: #f5f6f5f9;
+    font-family: 'Arial', sans-serif;
+}
+
+header h1 {
+    font-size: 2.5rem;
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: none;
+}
+
+.card img {
+    transition: transform 0.2s;
+}
+
+.card img:hover {
+    transform: scale(1.05);
+}
