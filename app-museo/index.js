@@ -1,18 +1,20 @@
 const express = require("express");
 const app = express();
-const  translate  = requiere("node-google-translate-skidz");
-const translate = require('node-google-translate-skidz');
-
-const port = 8080;
-
-
+const translate = require("node-google-translate-skidz");
+const port = 8100;
+const cors = require("cors");
+// Manejar errores del servidor
+//app.on('error', onError);
+//app.on('listening', onListening);
 
 
 app.use(express.static("public"));
+app.use(express.json());
+app.use(cors());
 
-//traducir texto completo de un objeto. o dijo el profe que tambien se puede mandar todo el objeto
-//otra forma que el buscar hago un post a un punto y q hece endpoint te devuelva todo el html completo.
-// la paginacion: voy a tener una variable page(para pasarle el numero de pagina asi le paso el enlace) o pug .
+
+//traducir
+
 app.post('/traduccion', async (req, res) => {
 
     let objetosTraducidos = req.body;
@@ -27,6 +29,7 @@ app.post('/traduccion', async (req, res) => {
                 translate({ text: item.dinastia, source: 'en', target: 'es' }),
                 translate({ text: item.fecha, source: 'en', target: 'es' })
             ]);
+            
 
             return {
                 titulo: tituloTraducido.translation,
@@ -42,21 +45,6 @@ app.post('/traduccion', async (req, res) => {
         res.status(500).send('Error al traducir los datos');
     }
 });
-
- 
- 
-//asi solo se envia una sola palabra para manejar mas hay q crear un json.
-/*app.get("/traducir/:texto", (req, res) => {
-    translate({
-        text: req.params.texto,
-        source: 'en',
-        target: 'es'
-
-    }, function(result){
-           res.json({ textotraducido: result.translation });    
-});
-});*/
-
 app.listen(port, () => {
     console.log(`Servidor iniciado en puerto ${port}`);
 });

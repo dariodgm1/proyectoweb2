@@ -24,3 +24,37 @@ footer p {
 .card img:hover {
     transform: scale(1.05);
 }
+#pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px; /* Espacio entre los elementos */
+}
+
+#pagination button {
+    padding: 8px 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#pagination button:hover {
+    background-color: #0056b3;
+}
+
+#numeropagina {
+    margin: 0;
+    padding: 0 10px;
+    font-size: 18px;
+}
+.mensaje {
+    text-align: center;
+    color: red;
+    font-size: 16px;
+    background-color: #ffcccc;
+    padding: 10px;
+    border: 1px solid red;
+    margin-bottom: 20px;
+}
